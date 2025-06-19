@@ -9,17 +9,24 @@ table {
   
 td, th {
     border: 1px solid gray;
-    padding: 8px;
     width: 25%;
     overflow: hidden;
     text-overflow: ellipsis;
-    
+    padding: 4px 15px;
 }
 
 th{
     background-color: #dddddd;
     text-align: center;
-    padding: 30px;
+}
+
+th input{
+    width: 90%;
+}
+
+th select{
+    width: 90%;
+    text-align: center;
 }
 
 td{

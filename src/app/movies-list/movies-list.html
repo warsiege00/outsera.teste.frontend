@@ -1,0 +1,61 @@
+<section>
+    <h2>List movies</h2>
+    <div class="card">
+       
+        <table >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>
+                        <span>Year</span>
+                        <input type="text" placeholder="Filter by year" [value]="yearFilter" (input)="onYearChange($any($event.target).value)">
+                    </th>
+                    <th>Title</th>
+                    <th>
+                        <span>Winner?</span>
+                        <select [value]="winnerFilter" (change)="onWinnerChange($any($event.target).value)">
+                            <option value="">Yes/No</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </th>
+                </tr>
+            </thead>
+            <div *ngIf="loading">Carregando...</div>
+            <div *ngIf="error">{{ error }}</div>
+            <tbody *ngIf="!loading && !error">
+                <tr *ngFor="let movie of movies">
+                    <td>{{ movie.id }}</td>
+                    <td>{{ movie.year }}</td>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.winner ? 'Yes' : 'No' }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <div class="table-footer">
+                            <ul class="pagination">
+                                <li [class.disabled]="page === 0">
+                                    <a href="#" (click)="$event.preventDefault(); goToPage(0)"><<</a>
+                                </li>
+                                <li [class.disabled]="page === 0">
+                                    <a href="#" (click)="$event.preventDefault(); goToPrevPageBlock()"><</a>
+                                </li>
+                                <li *ngFor="let i of visiblePages" [class.active]="i === page">
+                                    <a href="#" (click)="$event.preventDefault(); goToPage(i)">{{ i + 1 }}</a>
+                                </li>
+                                <li [class.disabled]="visiblePages[visiblePages.length-1] === totalPages - 1">
+                                    <a href="#" (click)="$event.preventDefault(); goToNextPageBlock()">></a>
+                                </li>
+                                <li [class.disabled]="page === totalPages - 1">
+                                    <a href="#" (click)="$event.preventDefault(); goToPage(totalPages - 1)">>></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
