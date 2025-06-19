@@ -1,0 +1,76 @@
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+  
+td, th {
+    border: 1px solid gray;
+    padding: 8px;
+    width: 25%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+th{
+    background-color: #dddddd;
+    text-align: center;
+    padding: 30px;
+}
+
+td{
+    text-align: left;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tfoot{
+    background-color: #dddddd;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 3px;
+}
+
+.pagination a:hover {
+    background-color: #f2f2f2;
+}
+
+.pagination .active a {
+    background-color: blue;
+    color: white;
+    border-color: blue;
+}
+
+.pagination .disabled a {
+    color: #aaa;
+    cursor: not-allowed;
+}
