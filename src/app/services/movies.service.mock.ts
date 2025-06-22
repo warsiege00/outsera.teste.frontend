@@ -1,5 +1,6 @@
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { MovieApiResponse } from './movies.service';
+
 
 export const mockMoviesResponse: MovieApiResponse = {
   content: [

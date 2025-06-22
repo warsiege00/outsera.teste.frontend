@@ -1,0 +1,20 @@
+<section class="container">
+    <div class="card">
+        <h2>List Years with multiple winners</h2>
+        <div *ngIf="loading">Carregando...</div>
+        <div *ngIf="error">{{ error }}</div>
+        <app-dashboard-table *ngIf="!loading && !error"
+                   [columns]="listYersColumns"
+                   [data]="years">
+        </app-dashboard-table>
+    </div>
+    <div class="card">
+        <h2>Top 3 studios with winners</h2>
+        <div *ngIf="loading">Carregando...</div>
+        <div *ngIf="error">{{ error }}</div>
+        <app-dashboard-table *ngIf="!loading && !error"
+                   [columns]="listYersColumns"
+                   [data]="years">
+        </app-dashboard-table>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.card{
+    width: 545px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
+}

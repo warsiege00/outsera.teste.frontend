@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService, Movie, MovieApiResponse } from './movies.service';
+import { MovieService, Movie, MovieApiResponse } from '../services/movies.service';
 import { CommonModule } from '@angular/common';
 import { debounceTime, Subject } from 'rxjs';
 

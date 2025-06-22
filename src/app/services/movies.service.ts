@@ -24,6 +24,13 @@ export interface MovieApiResponse {
   size: number;
 }
 
+export interface YearsWithMultipleWinnersResponse {
+  years: {
+    year: number;
+    winnerCount: number;
+  }[];
+}
+
 @Injectable({ providedIn: 'root' })
 export class MovieService {
   private readonly apiUrl = 'https://challenge.outsera.tech/api/movies';
@@ -37,5 +44,10 @@ export class MovieService {
     if (params.winner !== undefined) httpParams = httpParams.set('winner', params.winner);
     if (params.year !== undefined) httpParams = httpParams.set('year', params.year);
     return this.http.get<MovieApiResponse>(this.apiUrl, { params: httpParams });
+  }
+
+  getYearsWithMultipleWinners(): Observable<YearsWithMultipleWinnersResponse> {
+    const url = `${this.apiUrl}?projection=years-with-multiple-winners`;
+    return this.http.get<YearsWithMultipleWinnersResponse>(url);
   }
 } 
