@@ -1,20 +1,56 @@
 <section class="container">
     <div class="card">
         <h2>List Years with multiple winners</h2>
-        <div *ngIf="loading">Carregando...</div>
-        <div *ngIf="error">{{ error }}</div>
-        <app-dashboard-table *ngIf="!loading && !error"
-                   [columns]="listYersColumns"
-                   [data]="years">
+        <div *ngIf="loadingYears">Carregando...</div>
+        <div *ngIf="errorYears">{{ errorYears }}</div>
+        <app-dashboard-table *ngIf="!loadingYears && !errorYears"
+            [columns]="listYersColumns"
+            [data]="years">
+        </app-dashboard-table>
+    </div>
+    
+    <div class="card">
+        <h2>Top 3 studios with winners</h2>
+        <div *ngIf="loadingStudios">Carregando...</div>
+        <div *ngIf="errorStudios">{{ errorStudios }}</div>
+        <app-dashboard-table *ngIf="!loadingStudios && !errorStudios"
+            [columns]="studiosColumns"
+            [data]="studios">
         </app-dashboard-table>
     </div>
     <div class="card">
-        <h2>Top 3 studios with winners</h2>
-        <div *ngIf="loading">Carregando...</div>
-        <div *ngIf="error">{{ error }}</div>
-        <app-dashboard-table *ngIf="!loading && !error"
-                   [columns]="studiosColumns"
-                   [data]="studios">
+        <h2>Producers with longest and shortest interval between wins</h2>
+        <div *ngIf="loadingIntervals">Carregando...</div>
+        <div *ngIf="errorIntervals">{{ errorIntervals }}</div>
+        <div *ngIf="!loadingIntervals && !errorIntervals">
+            <h3>Maximum</h3>
+            <app-dashboard-table 
+                [columns]="producerIntervalColumns"
+                [data]="maxIntervals">
+            </app-dashboard-table>
+        </div>
+        <div *ngIf="!loadingIntervals && !errorIntervals">
+            <h3>Minimum</h3>
+            <app-dashboard-table 
+                [columns]="producerIntervalColumns"
+                [data]="minIntervals">
+            </app-dashboard-table>
+        </div>
+    </div>
+    <div class="card">
+        <h2>List movie winners by year</h2>
+        <input 
+            id="yearInput" 
+            type="number" 
+            [value]="selectedYear" 
+            (input)="onYearChange($any($event.target).value)" 
+            class="yearInput"
+            min="1900" max="2100" />
+        <div *ngIf="loadingWinnerMovies">Carregando...</div>
+        <div *ngIf="errorWinnerMovies">{{ errorWinnerMovies }}</div>
+        <app-dashboard-table *ngIf="!loadingWinnerMovies && !errorWinnerMovies"
+            [columns]="winnerMoviesColumns"
+            [data]="winnerMovies">
         </app-dashboard-table>
     </div>
 </section>
