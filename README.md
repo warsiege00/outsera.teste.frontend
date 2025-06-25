@@ -1,59 +1,55 @@
-# Frontend
+# Frontend - Outsera Desafio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Esta aplicação Angular permite consultar a lista de indicados e vencedores da categoria **Pior Filme** do Golden Raspberry Awards (Razzie), consumindo dados de uma API pública.
 
-## Development server
+O sistema possui:
+- **Dashboard**: Quatro painéis exibindo:
+  - Anos com mais de um vencedor
+  - Top 3 estúdios com mais vitórias
+  - Produtores com maior e menor intervalo entre vitórias
+  - Vencedores de um ano selecionado
+- **Lista de Filmes**: Todos os filmes, com paginação e filtros por ano e por vencedor
+- **Menu de navegação** entre as views
 
-To start a local development server, run:
+Os dados são obtidos da API: [https://challenge.outsera.tech/api/movies](https://challenge.outsera.tech/api/movies)
+
+### Download projeto
+```bash
+git clone https://github.com/warsiege00/outsera.teste.frontend
+```
+
+### Instale as dependências
+
+```bash
+npm install
+```
+
+### Servidor de desenvolvimento
 
 ```bash
 ng serve
 ```
+Acesse: [http://localhost:4200/](http://localhost:4200/)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+### Testes unitários
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Execute todos os testes unitários com:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## 🖥️ Responsividade
 
-For end-to-end (e2e) testing, run:
+O layout é otimizado para funcionar corretamente em telas a partir de **768x1280px** (tablets e desktops).
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📚 Recursos
 
-## Additional Resources
+- [Documentação Angular](https://angular.dev/)
+- [Angular CLI](https://angular.dev/tools/cli)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
