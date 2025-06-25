@@ -38,6 +38,18 @@ export interface StudiosWithWinCountResponse {
   }[];
 }
 
+export interface ProducerWinInterval {
+  producer: string;
+  interval: number;
+  previousWin: number;
+  followingWin: number;
+}
+
+export interface MaxMinWinIntervalResponse {
+  min: ProducerWinInterval[];
+  max: ProducerWinInterval[];
+}
+
 @Injectable({ providedIn: 'root' })
 export class MovieService {
   private readonly apiUrl = 'https://challenge.outsera.tech/api/movies';
@@ -61,5 +73,17 @@ export class MovieService {
   getTopStudiosWithWinCount(): Observable<StudiosWithWinCountResponse> {
     const url = `${this.apiUrl}?projection=studios-with-win-count`;
     return this.http.get<StudiosWithWinCountResponse>(url);
+  }
+
+  getProducersMaxMinWinInterval(): Observable<MaxMinWinIntervalResponse> {
+    const url = `${this.apiUrl}?projection=max-min-win-interval-for-producers`;
+    return this.http.get<MaxMinWinIntervalResponse>(url);
+  }
+
+  getWinnerMoviesByYear(year: number): Observable<Movie[]> {
+    const params = new HttpParams()
+      .set('winner', 'true')
+      .set('year', year);
+    return this.http.get<Movie[]>(this.apiUrl, { params });
   }
 } 
