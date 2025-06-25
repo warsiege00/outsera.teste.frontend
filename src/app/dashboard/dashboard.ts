@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
   producerIntervalColumns = [
     { key: 'producer', label: 'Producer' },
     { key: 'interval', label: 'Interval' },
-    { key: 'previousYear', label: 'Previous Year' },
+    { key: 'previousWin', label: 'Previous Year' },
     { key: 'followingWin', label: 'Following Win' }
   ];
 
