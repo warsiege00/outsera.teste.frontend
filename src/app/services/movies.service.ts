@@ -31,6 +31,13 @@ export interface YearsWithMultipleWinnersResponse {
   }[];
 }
 
+export interface StudiosWithWinCountResponse {
+  studios: {
+    name: string;
+    winCount: number;
+  }[];
+}
+
 @Injectable({ providedIn: 'root' })
 export class MovieService {
   private readonly apiUrl = 'https://challenge.outsera.tech/api/movies';
@@ -49,5 +56,10 @@ export class MovieService {
   getYearsWithMultipleWinners(): Observable<YearsWithMultipleWinnersResponse> {
     const url = `${this.apiUrl}?projection=years-with-multiple-winners`;
     return this.http.get<YearsWithMultipleWinnersResponse>(url);
+  }
+
+  getTopStudiosWithWinCount(): Observable<StudiosWithWinCountResponse> {
+    const url = `${this.apiUrl}?projection=studios-with-win-count`;
+    return this.http.get<StudiosWithWinCountResponse>(url);
   }
 } 

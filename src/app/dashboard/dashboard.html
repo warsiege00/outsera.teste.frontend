@@ -13,8 +13,8 @@
         <div *ngIf="loading">Carregando...</div>
         <div *ngIf="error">{{ error }}</div>
         <app-dashboard-table *ngIf="!loading && !error"
-                   [columns]="listYersColumns"
-                   [data]="years">
+                   [columns]="studiosColumns"
+                   [data]="studios">
         </app-dashboard-table>
     </div>
 </section>
